@@ -1,0 +1,346 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #222;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.4s ease;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* --- Top menu --- */
+.top-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    max-height: 50px;
+    transition: max-height 0.4s ease;
+    z-index: 10;
+}
+
+.top-menu.open {
+    max-height: 400px;
+    overflow-y: auto;
+    /* Scroll paydo bo‘lishi uchun */
+}
+
+
+.menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.menu-content {
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+/* --- Blocks --- */
+.menu-block {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    backdrop-filter: blur(5px);
+}
+
+.clock-designs {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.design-preview {
+    font-size: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 5px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.design-preview:hover {
+    transform: scale(1.05);
+}
+
+/* --- Rang preview --- */
+.bg-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+.bg-color {
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 2px solid white;
+    transition: transform 0.2s;
+}
+
+.bg-color:hover {
+    transform: scale(1.1);
+}
+
+/* --- Soat --- */
+.main-clock {
+    font-size: 120px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+/* --- Dizayn variantlari --- */
+.design1 {
+    color: #fff;
+}
+
+.design2 {
+    color: cyan;
+    text-shadow: 0 0 10px cyan, 0 0 20px cyan;
+}
+
+.design3 {
+    color: transparent;
+    -webkit-text-stroke: 2px #ffcc00;
+    font-family: 'Monoton', cursive;
+}
+
+.design4 {
+    color: white;
+    background: linear-gradient(90deg, red, yellow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.design5 {
+    color: pink;
+    text-shadow: 0 0 10px purple, 0 0 20px purple;
+}
+
+/* --- Fullscreen --- */
+.fullscreen-icon {
+    position: fixed;
+    bottom: 15px;
+    left: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(6px);
+    border: none;
+    font-size: 28px;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+}
+
+.fullscreen-icon:hover {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.fullscreen-icon i {
+    font-size: 26px;
+}
+
+/* Responsiv */
+@media (max-width: 768px) {
+    .main-clock {
+        font-size: 70px;
+    }
+}
+
+/* new */
+.design9 {
+    color: #ff00ff;
+    text-shadow: 0 0 5px #ff00ff, 0 0 15px #ff66ff;
+    font-style: italic;
+}
+
+.design10 {
+    color: white;
+    background: linear-gradient(to right, #ff6600, #ffcc00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.design11 {
+    color: #00ff00;
+    text-shadow: 1px 1px 0 black, 2px 2px 0 black;
+    letter-spacing: 2px;
+}
+
+.design12 {
+    color: #00ffff;
+    font-weight: bold;
+    text-shadow: 0 0 5px #0099ff, 0 0 15px #00ffff;
+}
+
+.design13 {
+    color: orange;
+    text-shadow: -2px -2px 0 #222, 2px 2px 0 #444;
+    font-family: 'Monoton', cursive;
+}
+
+.tools-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.tools-buttons button,
+.tools-buttons .back-btn {
+  padding: 10px 20px;
+  font-size: 18px;
+  margin: 5px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  transition: background 0.3s;
+}
+
+.tools-buttons button:hover,
+.tools-buttons .back-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+input {
+  padding: 8px;
+  font-size: 18px;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  text-align: center;
+}
+
+#timeInput {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.3);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  width: 120px;
+  outline: none;
+  letter-spacing: 3px;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+}
+
+#timeInput:focus {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Katta asosiy taymer */
+.big-timer {
+  font-size: 100px; /* kattaroq qildik */
+  font-weight: bold;
+  margin: 20px 0;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+/* Vaqt kiritish input */
+#timeInput {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.3);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  width: 140px;
+  margin-top: 10px;
+  outline: none;
+  letter-spacing: 3px;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+}
+
+/* Hide/Show tugma */
+#toggleInput {
+  padding: 8px 15px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#toggleInput:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* TUGADI yozuvi animatsiyasi */
+.time-up {
+  display: none;
+  font-size: 50px;
+  font-weight: bold;
+  color: red;
+  margin-top: 20px;
+  text-shadow: 0 0 10px #ff0000, 0 0 20px #ff4d4d;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+/* Tepadagi bar */
+.top-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+
+.top-bar h1 {
+  margin: 0;
+  font-size: 30px;
+}
+
+.top-bar #toggleInput {
+  padding: 8px 15px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.top-bar #toggleInput:hover {
+  background: rgba(255, 255, 255, 0.35);
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shishali Soat</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet" />
+    <!--Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+    <!-- Menu -->
+    <header class="top-menu" id="topMenu">
+        <button id="menuToggle" class="menu-toggle">
+            <i class="fa-solid fa-bars"></i> <!-- Menu icon -->
+        </button>
+
+        <div class="menu-content">
+            <!-- Number style -->
+            <div class="menu-block">
+                <h3>Number Style</h3>
+                <div class="clock-designs">
+                    <div class="design-preview design1" data-design="design1">12:45</div>
+                    <div class="design-preview design2" data-design="design2">12:45</div>
+                    <div class="design-preview design3" data-design="design3">12:45</div>
+                    <div class="design-preview design4" data-design="design4">12:45</div>
+                    <div class="design-preview design5" data-design="design5">12:45</div>
+                    <!-- new clock -->
+                    <div class="design-preview design9" data-design="design9">12:45</div>
+                    <div class="design-preview design10" data-design="design10">12:45</div>
+                    <div class="design-preview design11" data-design="design11">12:45</div>
+                    <div class="design-preview design12" data-design="design12">12:45</div>
+                    <div class="design-preview design13" data-design="design13">12:45</div>
+                </div>
+            </div>
+            <!-- Background -->
+            <div class="menu-block">
+                <h3>Background</h3>
+                <div class="bg-options">
+                    <div class="bg-color" style="background:#1e3c72" data-bg="color1"></div>
+                    <div class="bg-color" style="background:#ff416c" data-bg="color2"></div>
+                    <div class="bg-color" style="background:#00b4db" data-bg="color3"></div>
+                    <div class="bg-color" style="background:#ff9a9e" data-bg="color4"></div>
+                    <div class="bg-color" style="background:#56ab2f" data-bg="color5"></div>
+                    <div class="bg-color" style="background:#ff6600" data-bg="color6"></div>
+                    <div class="bg-color" style="background:#66ccff" data-bg="color7"></div>
+                    <div class="bg-color" style="background:#cc33ff" data-bg="color8"></div>
+                    <div class="bg-color" style="background:#00cc99" data-bg="color9"></div>
+                    <div class="bg-color" style="background:#ff0066" data-bg="color10"></div>
+                    <div class="bg-color" style="background:#000000ff" data-bg="color11"></div>
+                    <input type="file" id="bgUpload" accept="image/*">
+                </div>
+            </div>
+            <!-- Country -->
+            <div class="menu-block">
+                <h3>Country</h3>
+                <p>Samarqand</p>
+            </div>
+            <!-- Links -->
+            <div class="menu-block">
+                <h3>Tools</h3>
+                <a href="stopwatch.html" class="tool-link" style="text-decoration: none; color: white;">Sekundomer</a>
+                <p>     </p>
+                <a href="timer.html" class="tool-link" style="text-decoration: none; color: white;">Taymer</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Markazdagi soat -->
+    <main>
+        <div class="main-clock design1" id="mainClock">12:45</div>
+    </main>
+
+    <!-- Fullscreen icon -->
+    <button id="fullscreenBtn" class="fullscreen-icon">
+        <i class="fa-solid fa-expand"></i> <!-- Fullscreen icon -->
+    </button>
+
+    <script src="script.js"></script>
+    <script src="background.js"></script>
+
+</body>
+
+</html>

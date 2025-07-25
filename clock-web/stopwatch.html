@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sekundomer</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="tools-page">
+    <h1>Sekundomer</h1>
+    <div class="main-clock" id="stopwatch">00:00:00</div>
+    <div class="tools-buttons">
+        <button id="startStop">Start</button>
+        <button id="reset">Reset</button>
+        <a href="index.html" class="back-btn" style="text-decoration: none;">Orqaga</a>
+    </div>
+
+    <script>
+        let stopwatchInterval;
+        let seconds = 0;
+
+        function updateStopwatch() {
+            let hrs = String(Math.floor(seconds / 3600)).padStart(2, "0");
+            let mins = String(Math.floor((seconds % 3600) / 60)).padStart(2, "0");
+            let secs = String(seconds % 60).padStart(2, "0");
+            document.getElementById("stopwatch").textContent = `${hrs}:${mins}:${secs}`;
+        }
+
+        document.getElementById("startStop").addEventListener("click", function () {
+            if (this.textContent === "Start") {
+                this.textContent = "Stop";
+                stopwatchInterval = setInterval(() => {
+                    seconds++;
+                    updateStopwatch();
+                }, 1000);
+            } else {
+                this.textContent = "Start";
+                clearInterval(stopwatchInterval);
+            }
+        });
+
+        document.getElementById("reset").addEventListener("click", function () {
+            clearInterval(stopwatchInterval);
+            seconds = 0;
+            updateStopwatch();
+            document.getElementById("startStop").textContent = "Start";
+        });
+
+        updateStopwatch();
+
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Enter") {
+                document.getElementById("startTimer").click(); // Taymer uchun
+                // yoki stopwatch uchun
+                // document.getElementById("startStop").click();
+            }
+        });
+
+    </script>
+    <script src="background.js"></script>
+
+</body>
+
+</html>

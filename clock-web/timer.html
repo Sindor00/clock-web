@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taymer</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="tools-page">
+    <!-- <h1>Taymer</h1> -->
+
+    <!-- Hide/Show tugma -->
+    <div class="top-bar">
+        <h1>Taymer</h1>
+        <button id="toggleInput">📝 Vaqtni O'zgartir</button>
+    </div>
+
+
+    <!-- Bitta input 00:00 formatida -->
+    <input type="text" id="timeInput" value="00:00" maxlength="5" />
+
+    <div class="main-clock big-timer" id="timerDisplay">00:00</div>
+    <div id="timeUpMessage" class="time-up">TUGADI!</div>
+
+
+    <div class="tools-buttons">
+        <button id="startTimer">Start</button>
+        <button id="resetTimer">Reset</button>
+        <a href="index.html" class="back-btn" style="text-decoration: none;">Orqaga</a>
+    </div>
+
+    <script>
+        let timerInterval;
+        let totalTime = 0;
+        const timeInput = document.getElementById("timeInput");
+        const toggleBtn = document.getElementById("toggleInput");
+
+        function parseTime(value) {
+            const parts = value.split(":");
+            const mins = parseInt(parts[0]) || 0;
+            const secs = parseInt(parts[1]) || 0;
+            return mins * 60 + secs;
+        }
+
+        function updateTimerDisplay() {
+            let mins = String(Math.floor(totalTime / 60)).padStart(2, "0");
+            let secs = String(totalTime % 60).padStart(2, "0");
+            document.getElementById("timerDisplay").textContent = `${mins}:${secs}`;
+        }
+
+        document.getElementById("startTimer").addEventListener("click", function () {
+            totalTime = parseTime(timeInput.value);
+            clearInterval(timerInterval);
+            updateTimerDisplay();
+
+            timerInterval = setInterval(() => {
+                if (totalTime > 0) {
+                    totalTime--;
+                    updateTimerDisplay();
+                } else {
+                    clearInterval(timerInterval);
+                    document.getElementById("timeUpMessage").style.display = "block";
+                }
+            }, 1000);
+        });
+
+        document.getElementById("resetTimer").addEventListener("click", function () {
+            document.getElementById("timeUpMessage").style.display = "none";
+            clearInterval(timerInterval);
+            totalTime = 0;
+            updateTimerDisplay();
+        });
+
+        toggleBtn.addEventListener("click", function () {
+            if (timeInput.style.display === "none") {
+                timeInput.style.display = "inline-block";
+                toggleBtn.textContent = "✖ Yopish";
+            } else {
+                timeInput.style.display = "none";
+                toggleBtn.textContent = "📝 Vaqtni O'zgartir";
+            }
+        });
+
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Enter") {
+                document.getElementById("startTimer").click();
+            }
+        });
+
+        updateTimerDisplay();
+    </script>
+    <script src="background.js"></script>
+</body>
+
+</html>
